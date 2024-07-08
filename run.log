@@ -1,0 +1,711 @@
+2024-07-07 18:10:27,398 - CoverAgent - INFO - Current Coverage: 35.71%
+2024-07-07 18:10:27,399 - CoverAgent - INFO - Desired Coverage: 70%
+2024-07-07 18:12:02,541 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function returns the c2024-07-07 18:12:02,542 - UnitTestGenerator - INFO - test_code : when(contactService.findAll()).thenReturn(Arrays.asList());
+mockMvc.perform(get("/read-contact"))
+    .andExpect(status().isOk())
+    .andExpect(view().name("readcontact"));
+verify(contactService, times(1)).findAll();
+2024-07-07 18:12:02,544 - UnitT2024-07-07 18:12:05,767 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function handles a null contact correctly\n', 'test_name': 'test_null_contact\n', 'test_code': 'Contact contact = null;\nmockMvc.perform(get("/create-contact"))\n    .andExpect(status().isOk())\n    .andExpect(view().name("createcontact"));\nverify(contactService, times(0)).saveContact(any());\n'}
+2024-07-07 18:12:08,930 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function handles an invalid id correctly\n', 'test_name': 'test_invalid_contact_id\n', 'test_code': 'when(contactService.findById(anyInt())).thenReturn(Optional.empty());\nmockMvc.perform(get("/update-contact/1"))\n    .andExpect(status().isOk())\n    .andExpect(view().name("updatecontact"));\nverify(contactService, times(0)).findById(anyInt());\n'}
+2024-07-07 18:12:12,117 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function handles a contact with invalid data correctly\n', 'test_name': 'test_invalid_contact_data\n', 'test_code': 'Contact contact = new Contact();\ncontact.setName(null);\nmockMvc.perform(post("/create-contact").param("contact", "name"))\n    .andExpect(status().isOk())\n    .andExpect(view().name("createcontact"));\nverify(contactService, times(0)).saveContact(any());\n'}
+2024-07-07 18:12:27,723 - CoverAgent - INFO - Current Coverage: 35.71%
+2024-07-07 18:12:27,723 - CoverAgent - INFO - Desired Coverage: 70%
+2024-07-07 18:13:35,829 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function handles an invalid id correctly', 'test_name': 'test_invalid_contact_id', 'test_code': 'when(contactService.findById(anyInt())).thenReturn(Optional.empty());\nmockMvc.perform(get("/update-contact/1"))\n    .andExpect(status().isOk())\n    .andExpect(view().name("updatecontact"));\nverify(contactService, times(0)).findById(anyInt());\n'}
+2024-07-07 18:13:39,148 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function handles a contact with invalid data correctly', 'test_name': 'test_invalid_contact_data', 'test_code': 'Contact contact = new Contact();\ncontact.setName(null);\nmockMvc.perform(post("/create-contact").param("contact", "name"))\n    .andExpect(status().isOk())\n    .andExpect(view().name("createcontact"));\nverify(contactService, times(0)).saveContact(any());\n'}
+2024-07-07 18:13:42,633 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function returns the correct output for an empty list', 'test_name': 'test_empty_contact_list', 'test_code': 'when(contactService.findAll()).thenReturn(Arrays.asList());\nmockMvc.perform(get("/read-contact"))\n    .andExpect(status().isOk())\n    .andExpect(view().name("readcontact"));\nverify(contactService, times(1)).findAll();\n'}
+2024-07-07 18:13:45,905 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function handles a null contact correctly', 'test_name': 'test_null_contact', 'test_code': 'Contact contact = null;\nmockMvc.perform(get("/create-contact"))\n    .andExpect(status().isOk())\n    .andExpect(view().name("createcontact"));\nverify(contactService, times(0)).saveContact(any());'}
+2024-07-07 18:14:01,539 - CoverAgent - INFO - Current Coverage: 35.71%
+2024-07-07 18:14:01,540 - CoverAgent - INFO - Desired Coverage: 70%
+2024-07-07 18:15:15,658 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function handles an invalid id correctly', 'test_name': 'test_invalid_contact_id', 'test_code': 'when(contactService.findById(anyInt())).thenReturn(Optional.empty());\\nmockMvc.perform(get("/update-contact/1"))\\n    .andExpect(status().isOk())\\n    .andExpect(view().name("updatecontact"));;\\nverify(contactService, times(0)).findById(anyInt());\\n', 'new_imports_code': '', 'test_tags': 'edge case'}
+2024-07-07 18:15:18,985 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function handles a contact with invalid data correctly', 'test_name': 'test_invalid_contact_data', 'test_code': 'Contact contact = new Contact();\\ncontact.setName(null);\\nmockMvc.perform(post("/create-contact").param("contact", "name"))\\n    .andExpect(status().isOk())\\n    .andExpect(view().name("createcontact"));;\\nverify(contactService, times(0)).saveContact(any());\\n', 'new_imports_code': '', 'test_tags': 'edge case'}
+2024-07-07 18:15:22,153 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function returns the correct output for an empty list', 'test_name': 'test_empty_contact_list', 'test_code': 'when(contactService.findAll()).thenReturn(Arrays.asList());\\nmockMvc.perform(get("/read-contact"))\\n    .andExpect(status().isOk())\\n    .andExpect(view().name("readcontact"));;\\nverify(contactService, times(1)).findAll();\\n', 'new_imports_code': '', 'test_tags': 'happy path'}
+2024-07-07 18:15:25,332 - CoverAgent - INFO - generated test: {'test_behavior': 'Test that the function handles a null contact correctly', 'test_name': 'test_null_contact', 'test_code': 'Contact contact = null;\\nmockMvc.perform(get("/create-contact"))\\n    .andExpect(status().isOk())\\n    .andExpect(view().name("createcontact"));;\\nverify(contactService, times(0)).saveContact(any());\\n', 'new_imports_code': '', 'test_tags': 'edge case'}
+2024-07-07 18:15:40,494 - CoverAgent - ERROR - Reached maximum iteration limit without achieving desired coverage. Current Coverage: 35.71%
+dExpect(view().name("updatecontact"));
+verify(contactService, times(0)).findById(anyInt());
+2024-07-07 18:12:08,934 - UnitTestGenerator - INFO - Running test with the following command: "gradle clean test jacocoTestReport"
+2024-07-07 18:12:12,115 - UnitTestGenerator - INFO - package com.example.demo.controller;
+
+import com.example.demo.model.Contact;
+import com.example.demo.service.ContactService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+public class ContactControllerTest {
+
+    @Mock
+    private ContactService contactService;
+
+    @InjectMocks
+    private ContactController contactController;
+
+    private MockMvc mockMvc;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(contactController).build();
+    }
+
+    @Test
+    public void testShowReadContactPage() throws Exception {
+        when(contactService.findAll()).thenReturn(Arrays.asList(new Contact(), new Contact()));
+
+        mockMvc.perform(get("/read-contact"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("readcontact"));
+
+        verify(contactService, times(1)).findAll();
+    }
+
+    @Test
+    public void testDeleteContact() throws Exception {
+        doNothing().when(contactService).deleteById(anyInt());
+
+        mockMvc.perform(get("/delete-contact/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).deleteById(anyInt());
+    }
+}
+
+2024-07-07 18:12:12,117 - UnitTestGenerator - INFO - Skipping a generated test that failed
+2024-07-07 18:12:12,118 - UnitTestGenerator - INFO - test_code : Contact contact = new Contact();
+contact.setName(null);
+mockMvc.perform(post("/create-contact").param("contact", "name"))
+    .andExpect(status().isOk())
+    .andExpect(view().name("createcontact"));
+verify(contactService, times(0)).saveContact(any());
+2024-07-07 18:12:12,121 - UnitTestGenerator - INFO - Running test with the following command: "gradle clean test jacocoTestReport"
+2024-07-07 18:12:15,403 - UnitTestGenerator - INFO - package com.example.demo.controller;
+
+import com.example.demo.model.Contact;
+import com.example.demo.service.ContactService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+public class ContactControllerTest {
+
+    @Mock
+    private ContactService contactService;
+
+    @InjectMocks
+    private ContactController contactController;
+
+    private MockMvc mockMvc;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(contactController).build();
+    }
+
+    @Test
+    public void testShowReadContactPage() throws Exception {
+        when(contactService.findAll()).thenReturn(Arrays.asList(new Contact(), new Contact()));
+
+        mockMvc.perform(get("/read-contact"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("readcontact"));
+
+        verify(contactService, times(1)).findAll();
+    }
+
+    @Test
+    public void testDeleteContact() throws Exception {
+        doNothing().when(contactService).deleteById(anyInt());
+
+        mockMvc.perform(get("/delete-contact/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).deleteById(anyInt());
+    }
+}
+
+2024-07-07 18:12:15,404 - UnitTestGenerator - INFO - Skipping a generated test that failed
+2024-07-07 18:12:15,405 - UnitTestGenerator - INFO - Running build/test command to generate coverage report: "gradle clean test jacocoTestReport"
+2024-07-07 18:13:35,815 - UnitTestGenerator - INFO - Total token used count for LLM model ollama/llama3: 2461
+2024-07-07 18:13:35,831 - UnitTestGenerator - INFO - test_code : when(contactService.findById(anyInt())).thenReturn(Optional.empty());
+mockMvc.perform(get("/update-contact/1"))
+    .andExpect(status().isOk())
+    .andExpect(view().name("updatecontact"));
+verify(contactService, times(0)).findById(anyInt());
+2024-07-07 18:13:35,833 - UnitTestGenerator - INFO - Running test with the following command: "gradle clean test jacocoTestReport"
+2024-07-07 18:13:39,145 - UnitTestGenerator - INFO - package com.example.demo.controller;
+
+import com.example.demo.model.Contact;
+import com.example.demo.service.ContactService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+public class ContactControllerTest {
+
+    @Mock
+    private ContactService contactService;
+
+    @InjectMocks
+    private ContactController contactController;
+
+    private MockMvc mockMvc;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(contactController).build();
+    }
+
+    @Test
+    public void testShowReadContactPage() throws Exception {
+        when(contactService.findAll()).thenReturn(Arrays.asList(new Contact(), new Contact()));
+
+        mockMvc.perform(get("/read-contact"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("readcontact"));
+
+        verify(contactService, times(1)).findAll();
+    }
+
+    @Test
+    public void testDeleteContact() throws Exception {
+        doNothing().when(contactService).deleteById(anyInt());
+
+        mockMvc.perform(get("/delete-contact/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).deleteById(anyInt());
+    }
+}
+
+2024-07-07 18:13:39,147 - UnitTestGenerator - INFO - Skipping a generated test that failed
+2024-07-07 18:13:39,149 - UnitTestGenerator - INFO - test_code : Contact contact = new Contact();
+contact.setName(null);
+mockMvc.perform(post("/create-contact").param("contact", "name"))
+    .andExpect(status().isOk())
+    .andExpect(view().name("createcontact"));
+verify(contactService, times(0)).saveContact(any());
+2024-07-07 18:13:39,152 - UnitTestGenerator - INFO - Running test with the following command: "gradle clean test jacocoTestReport"
+2024-07-07 18:13:42,631 - UnitTestGenerator - INFO - package com.example.demo.controller;
+
+import com.example.demo.model.Contact;
+import com.example.demo.service.ContactService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+public class ContactControllerTest {
+
+    @Mock
+    private ContactService contactService;
+
+    @InjectMocks
+    private ContactController contactController;
+
+    private MockMvc mockMvc;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(contactController).build();
+    }
+
+    @Test
+    public void testShowReadContactPage() throws Exception {
+        when(contactService.findAll()).thenReturn(Arrays.asList(new Contact(), new Contact()));
+
+        mockMvc.perform(get("/read-contact"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("readcontact"));
+
+        verify(contactService, times(1)).findAll();
+    }
+
+    @Test
+    public void testDeleteContact() throws Exception {
+        doNothing().when(contactService).deleteById(anyInt());
+
+        mockMvc.perform(get("/delete-contact/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).deleteById(anyInt());
+    }
+}
+
+2024-07-07 18:13:42,633 - UnitTestGenerator - INFO - Skipping a generated test that failed
+2024-07-07 18:13:42,634 - UnitTestGenerator - INFO - test_code : when(contactService.findAll()).thenReturn(Arrays.asList());
+mockMvc.perform(get("/read-contact"))
+    .andExpect(status().isOk())
+    .andExpect(view().name("readcontact"));
+verify(contactService, times(1)).findAll();
+2024-07-07 18:13:42,637 - UnitTestGenerator - INFO - Running test with the following command: "gradle clean test jacocoTestReport"
+2024-07-07 18:13:45,903 - UnitTestGenerator - INFO - package com.example.demo.controller;
+
+import com.example.demo.model.Contact;
+import com.example.demo.service.ContactService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+public class ContactControllerTest {
+
+    @Mock
+    private ContactService contactService;
+
+    @InjectMocks
+    private ContactController contactController;
+
+    private MockMvc mockMvc;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(contactController).build();
+    }
+
+    @Test
+    public void testShowReadContactPage() throws Exception {
+        when(contactService.findAll()).thenReturn(Arrays.asList(new Contact(), new Contact()));
+
+        mockMvc.perform(get("/read-contact"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("readcontact"));
+
+        verify(contactService, times(1)).findAll();
+    }
+
+    @Test
+    public void testDeleteContact() throws Exception {
+        doNothing().when(contactService).deleteById(anyInt());
+
+        mockMvc.perform(get("/delete-contact/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).deleteById(anyInt());
+    }
+}
+
+2024-07-07 18:13:45,905 - UnitTestGenerator - INFO - Skipping a generated test that failed
+2024-07-07 18:13:45,906 - UnitTestGenerator - INFO - test_code : Contact contact = null;
+mockMvc.perform(get("/create-contact"))
+    .andExpect(status().isOk())
+    .andExpect(view().name("createcontact"));
+verify(contactService, times(0)).saveContact(any());
+2024-07-07 18:13:45,908 - UnitTestGenerator - INFO - Running test with the following command: "gradle clean test jacocoTestReport"
+2024-07-07 18:13:49,162 - UnitTestGenerator - INFO - package com.example.demo.controller;
+
+import com.example.demo.model.Contact;
+import com.example.demo.service.ContactService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+public class ContactControllerTest {
+
+    @Mock
+    private ContactService contactService;
+
+    @InjectMocks
+    private ContactController contactController;
+
+    private MockMvc mockMvc;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(contactController).build();
+    }
+
+    @Test
+    public void testShowReadContactPage() throws Exception {
+        when(contactService.findAll()).thenReturn(Arrays.asList(new Contact(), new Contact()));
+
+        mockMvc.perform(get("/read-contact"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("readcontact"));
+
+        verify(contactService, times(1)).findAll();
+    }
+
+    @Test
+    public void testDeleteContact() throws Exception {
+        doNothing().when(contactService).deleteById(anyInt());
+
+        mockMvc.perform(get("/delete-contact/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).deleteById(anyInt());
+    }
+}
+
+2024-07-07 18:13:49,163 - UnitTestGenerator - INFO - Skipping a generated test that failed
+2024-07-07 18:13:49,164 - UnitTestGenerator - INFO - Running build/test command to generate coverage report: "gradle clean test jacocoTestReport"
+2024-07-07 18:15:15,641 - UnitTestGenerator - INFO - Total token used count for LLM model ollama/llama3: 2540
+2024-07-07 18:15:15,659 - UnitTestGenerator - INFO - test_code : when(contactService.findById(anyInt())).thenReturn(Optional.empty());\nmockMvc.perform(get("/update-contact/1"))\n    .andExpect(status().isOk())\n    .andExpect(view().name("updatecontact"));;\nverify(contactService, times(0)).findById(anyInt());\n
+2024-07-07 18:15:15,661 - UnitTestGenerator - INFO - Running test with the following command: "gradle clean test jacocoTestReport"
+2024-07-07 18:15:18,983 - UnitTestGenerator - INFO - package com.example.demo.controller;
+
+import com.example.demo.model.Contact;
+import com.example.demo.service.ContactService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+public class ContactControllerTest {
+
+    @Mock
+    private ContactService contactService;
+
+    @InjectMocks
+    private ContactController contactController;
+
+    private MockMvc mockMvc;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(contactController).build();
+    }
+
+    @Test
+    public void testShowReadContactPage() throws Exception {
+        when(contactService.findAll()).thenReturn(Arrays.asList(new Contact(), new Contact()));
+
+        mockMvc.perform(get("/read-contact"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("readcontact"));
+
+        verify(contactService, times(1)).findAll();
+    }
+
+    @Test
+    public void testDeleteContact() throws Exception {
+        doNothing().when(contactService).deleteById(anyInt());
+
+        mockMvc.perform(get("/delete-contact/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).deleteById(anyInt());
+    }
+}
+
+2024-07-07 18:15:18,985 - UnitTestGenerator - INFO - Skipping a generated test that failed
+2024-07-07 18:15:18,986 - UnitTestGenerator - INFO - test_code : Contact contact = new Contact();\ncontact.setName(null);\nmockMvc.perform(post("/create-contact").param("contact", "name"))\n    .andExpect(status().isOk())\n    .andExpect(view().name("createcontact"));;\nverify(contactService, times(0)).saveContact(any());\n
+2024-07-07 18:15:18,989 - UnitTestGenerator - INFO - Running test with the following command: "gradle clean test jacocoTestReport"
+2024-07-07 18:15:22,151 - UnitTestGenerator - INFO - package com.example.demo.controller;
+
+import com.example.demo.model.Contact;
+import com.example.demo.service.ContactService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+public class ContactControllerTest {
+
+    @Mock
+    private ContactService contactService;
+
+    @InjectMocks
+    private ContactController contactController;
+
+    private MockMvc mockMvc;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(contactController).build();
+    }
+
+    @Test
+    public void testShowReadContactPage() throws Exception {
+        when(contactService.findAll()).thenReturn(Arrays.asList(new Contact(), new Contact()));
+
+        mockMvc.perform(get("/read-contact"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("readcontact"));
+
+        verify(contactService, times(1)).findAll();
+    }
+
+    @Test
+    public void testDeleteContact() throws Exception {
+        doNothing().when(contactService).deleteById(anyInt());
+
+        mockMvc.perform(get("/delete-contact/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).deleteById(anyInt());
+    }
+}
+
+2024-07-07 18:15:22,152 - UnitTestGenerator - INFO - Skipping a generated test that failed
+2024-07-07 18:15:22,154 - UnitTestGenerator - INFO - test_code : when(contactService.findAll()).thenReturn(Arrays.asList());\nmockMvc.perform(get("/read-contact"))\n    .andExpect(status().isOk())\n    .andExpect(view().name("readcontact"));;\nverify(contactService, times(1)).findAll();\n
+2024-07-07 18:15:22,156 - UnitTestGenerator - INFO - Running test with the following command: "gradle clean test jacocoTestReport"
+2024-07-07 18:15:25,330 - UnitTestGenerator - INFO - package com.example.demo.controller;
+
+import com.example.demo.model.Contact;
+import com.example.demo.service.ContactService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+public class ContactControllerTest {
+
+    @Mock
+    private ContactService contactService;
+
+    @InjectMocks
+    private ContactController contactController;
+
+    private MockMvc mockMvc;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(contactController).build();
+    }
+
+    @Test
+    public void testShowReadContactPage() throws Exception {
+        when(contactService.findAll()).thenReturn(Arrays.asList(new Contact(), new Contact()));
+
+        mockMvc.perform(get("/read-contact"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("readcontact"));
+
+        verify(contactService, times(1)).findAll();
+    }
+
+    @Test
+    public void testDeleteContact() throws Exception {
+        doNothing().when(contactService).deleteById(anyInt());
+
+        mockMvc.perform(get("/delete-contact/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).deleteById(anyInt());
+    }
+}
+
+2024-07-07 18:15:25,331 - UnitTestGenerator - INFO - Skipping a generated test that failed
+2024-07-07 18:15:25,333 - UnitTestGenerator - INFO - test_code : Contact contact = null;\nmockMvc.perform(get("/create-contact"))\n    .andExpect(status().isOk())\n    .andExpect(view().name("createcontact"));;\nverify(contactService, times(0)).saveContact(any());\n
+2024-07-07 18:15:25,335 - UnitTestGenerator - INFO - Running test with the following command: "gradle clean test jacocoTestReport"
+2024-07-07 18:15:28,607 - UnitTestGenerator - INFO - package com.example.demo.controller;
+
+import com.example.demo.model.Contact;
+import com.example.demo.service.ContactService;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+public class ContactControllerTest {
+
+    @Mock
+    private ContactService contactService;
+
+    @InjectMocks
+    private ContactController contactController;
+
+    private MockMvc mockMvc;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(contactController).build();
+    }
+
+    @Test
+    public void testShowReadContactPage() throws Exception {
+        when(contactService.findAll()).thenReturn(Arrays.asList(new Contact(), new Contact()));
+
+        mockMvc.perform(get("/read-contact"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("readcontact"));
+
+        verify(contactService, times(1)).findAll();
+    }
+
+    @Test
+    public void testDeleteContact() throws Exception {
+        doNothing().when(contactService).deleteById(anyInt());
+
+        mockMvc.perform(get("/delete-contact/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).deleteById(anyInt());
+    }
+}
+
+2024-07-07 18:15:28,609 - UnitTestGenerator - INFO - Skipping a generated test that failed
+2024-07-07 18:15:28,609 - UnitTestGenerator - INFO - Running build/test command to generate coverage report: "gradle clean test jacocoTestReport"

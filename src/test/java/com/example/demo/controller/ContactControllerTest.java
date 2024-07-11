@@ -53,4 +53,45 @@ public class ContactControllerTest {
         verify(contactService, times(1)).saveContact(contact);
     }
 
+    @Test
+    public void testShowCreateContactPage() throws Exception {
+        mockMvc.perform(get("/create-contact"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("createcontact"))
+                .andExpect(model().attributeExists("command"));
+    }
+
+    @Test
+    public void testShowUpdateContactPage() throws Exception {
+        Contact contact = new Contact();
+        when(contactService.findById(1)).thenReturn(java.util.Optional.of(contact));
+
+        mockMvc.perform(get("/update-contact/1"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("updatecontact"))
+                .andExpect(model().attributeExists("id"))
+                .andExpect(model().attributeExists("command"));
+
+        verify(contactService, times(1)).findById(1);
+    }
+
+    @Test
+    public void testUpdateContact() throws Exception {
+        Contact contact = new Contact();
+        mockMvc.perform(post("/update-contact/1")
+                        .flashAttr("contact", contact))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).updateContact(1, contact);
+    }
+
+    @Test
+    public void testDeleteContact() throws Exception {
+        mockMvc.perform(get("/delete-contact/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/read-contact"));
+
+        verify(contactService, times(1)).deleteById(1);
+    }
 }

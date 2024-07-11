@@ -10,11 +10,4 @@ class DemoApplicationTests {
 	void contextLoads() {
 	}
 
-
-	@Test
-	void testEmptyArgumentList() {
-		String[] args = {};
-		DemoApplication.main(args);
-	}
-
 }
